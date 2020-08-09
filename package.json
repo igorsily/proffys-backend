@@ -9,6 +9,7 @@
     "start": "node dist/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpileOnly --ignore-watch node_modules --no-notify src/server.ts",
     "test": "jest",
+    "postinstall": "knex --knexfile knexfile.ts migrate:latest",
     "knex:seed": "knex --knexfile knexfile.ts seed:run",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex migrate:rollback"
@@ -44,5 +45,9 @@
     "express": "^4.17.1",
     "knex": "^0.21.2",
     "pg": "^8.3.0"
+  },
+  "engines": {
+    "node": "12.8.3",
+    "yarn": "1.22.4"
   }
 }
